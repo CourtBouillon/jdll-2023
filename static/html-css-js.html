@@ -1,0 +1,59 @@
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Le titre de la page</title>
+    <style>
+      h1 {
+        color: pink;
+      }
+      section {
+        border: 3px solid cyan;
+        margin: 1em;
+      }
+      p {
+        font-size: 20pt;
+      }
+      #un-id {
+        color: #72ed7e;
+      }
+      .une-classe {
+        border: 3px solid purple;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Le titre principal</h1>
+
+    <section>
+      <p>Un paragraphe dans une <strong>section</strong>.</p>
+    </section>
+
+    <section>
+      <p id="un-id">Un paragraphe dans une <strong>section</strong>, avec <em>un id</em>.</p>
+    </section>
+
+    <section>
+      <p class="une-classe">Un paragraphe dans une <strong>section</strong>, avec <em>une classe</em>.</p>
+    </section>
+
+    <section class="une-classe">
+      <p>Un paragraphe dans une <strong>section</strong>. <em>La section a la même classe que le paragraphe précédent</em>.</p>
+    </section>
+  </body>
+  <script>
+   Array.prototype.random = function () {
+       return this[Math.floor((Math.random()*this.length))];
+   }
+   var paragraph = document.getElementById("un-id");
+   paragraph.textContent += "Je viens du JS !";
+
+   for(var i = 0; i < 4; i++) {
+       var div = document.createElement('div');
+       div.style.cssText = "background: " + ["pink", "cyan", "#77a832", "#6d65db", "#dbae65", "#cd65db"].random() + "; border: 5px solid red;";
+       div.style.cssText += "position: absolute; top: " + Math.random() * 70 + "%; left: " + Math.random() * 50 + "%; width: 30%; padding: 0 1em";
+       div.innerHTML = '<p>FORMATION -30% EN CLIQUANT ICI</p><p>Réveillez le mâle alpha qui sommeile en vous</p>';
+       document.body.appendChild(div);
+   }
+  </script>
+</html>

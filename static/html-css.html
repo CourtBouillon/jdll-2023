@@ -1,0 +1,44 @@
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Le titre de la page</title>
+    <style>
+      h1 {
+        color: pink;
+      }
+      section {
+        border: 3px solid cyan;
+        margin: 1em;
+      }
+      p {
+        font-size: 20pt;
+      }
+      #un-id {
+        color: #72ed7e;
+      }
+      .une-classe {
+        border: 3px solid purple;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Le titre principal</h1>
+
+    <section>
+      <p>Un paragraphe dans une <strong>section</strong>.</p>
+    </section>
+
+    <section>
+      <p id="un-id">Un paragraphe dans une <strong>section</strong>, avec <em>un id</em>.</p>
+    </section>
+
+    <section>
+      <p class="une-classe">Un paragraphe dans une <strong>section</strong>, avec <em>une classe</em>.</p>
+    </section>
+
+    <section class="une-classe">
+      <p>Un paragraphe dans une <strong>section</strong>. <em>La section a la même classe que le paragraphe précédent</em>.</p>
+    </section>
+  </body>
+</html>

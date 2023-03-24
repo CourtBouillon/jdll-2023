@@ -1,0 +1,348 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="static/slideshow.css">
+    <link rel="stylesheet" href="static/reveal.js/plugin/highlight/zenburn.css">
+    <title>L’écran et le papier</title>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>L’écran et le papier</h1>
+          <p>une histoire croisée de CSS pour l’impression<br>par Paged.js × WeasyPrint</p>
+        </section>
+
+        <section>
+          <ol>
+            <li>Poser les termes</li>
+            <li>Bâtir les spécifications</li>
+            <li>Prendre des chemins différents</li>
+            <li>Construire ensemble</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Poser les termes</h2>
+        </section>
+        <section>
+          <h3>Qui êtes-vous ?</h3>
+        </section>
+        <section>
+          <h3>HTML</h3>
+        </section>
+        <section>
+          <h3>Exemple de HTML</h3>
+          <pre style="font-size: 0.6em"><code>
+&lt;html lang="fr">
+  &lt;head>
+    &lt;meta charset="utf-8">
+    &lt;title>Le titre de la page&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Le titre principal&lt;/h1>
+    &lt;section>
+      &lt;p>Un paragraphe dans une &lt;strong>section&lt;/strong>.&lt;/p>
+    &lt;/section>
+    &lt;section>
+      &lt;p id="un-id">Un paragraphe dans une section, avec &lt;em>un id&lt;/em>.&lt;/p>
+    &lt;/section>
+    &lt;section>
+      &lt;p class="une-classe">Un paragraphe dans une section, avec &lt;em>une classe&lt;/em>.&lt;/p>
+    &lt;/section>
+    &lt;section class="une-classe">
+      &lt;p>
+        Un paragraphe dans une &lt;strong>section&lt;/strong>.
+        &lt;em>La section a la même classe que le paragraphe précédent&lt;/em>.
+      &lt;/p>
+    &lt;/section>
+  &lt;/body>
+&lt;/html>
+          </code></pre>
+        </section>
+        <section>
+          <h3>Résultat de HTML</h3>
+          <iframe src="static/html.html"></iframe>
+        </section>
+        <section>
+          <h3>CSS</h3>
+        </section>
+        <section>
+          <h3>Exemple de CSS</h3>
+          <pre style="font-size: 0.6em"><code>
+h1 {
+  color: pink;
+}
+section {
+  border: 3px solid cyan;
+  margin: 1em;
+}
+p {
+  font-size: 20pt;
+}
+#un-id {
+  color: #72ed7e;
+}
+.une-classe {
+  border: 3px solid purple;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h3>Résultat de CSS</h3>
+          <iframe src="static/html-css.html"></iframe>
+        </section>
+        <section>
+          <h3>JavaScript</h3>
+        </section>
+        <section>
+          <h3>Exemple de JavaScript</h3>
+          <pre style="font-size: 0.6em"><code>
+Array.prototype.random = function () {
+  return this[Math.floor((Math.random()*this.length))];
+}
+var paragraph = document.getElementById("un-id");
+paragraph.textContent += "Je viens du JS !";
+
+for(var i = 0; i &lt; 4; i++) {
+  var div = document.createElement('div');
+  div.style.cssText = "background: " + ["pink", "cyan", "#77a832", "#6d65db", "#dbae65", "#cd65db"].random() + "; border: 5px solid red;";
+  div.style.cssText += "position: absolute; top: " + Math.random() * 70 + "%; left: " + Math.random() * 50 + "%; width: 30%; padding: 0 1em";
+  div.innerHTML = '&lt;p>FORMATION -30% EN CLIQUANT ICI&lt;/p>&lt;p>Réveillez le mâle alpha qui sommeile en vous&lt;/p>';
+  document.body.appendChild(div);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h3>Résultat de JavaScript</h3>
+          <iframe src="static/html-css-js.html"></iframe>
+        </section>
+
+        <section>
+          <h2>Bâtir les spécifications</h2>
+        </section>
+		<section>
+		  <img src="static/images/WWW-LetShare.svg">
+		  <p>1991 <br>(Tim Berners-Lee)</p>
+		</section>
+		<section>
+          <figure>
+		    <blockquote>
+              The WorldWideWeb (W3) is a wide-area hypermedia information retrieval initiative aiming to
+			  give universal access to a large universe of documents
+            </blockquote>
+		    <figcaption>Tim Berners-Lee</figcaption>
+          </figure>
+		</section>
+		<section>
+		  <p>HTML / CSS</p>
+		  <h3>Séparation du contenu et de la présentation</h3>
+		  <aside class="notes">
+			So, the main characteristic of the web is the separation of content, the semantic structure of a
+			document and the presentation, the visual rendering. <br>
+			This is really a revolution for graphic designers, who have been used to designing layouts for print
+			media for debate.
+		  </aside>
+		</section>
+		<section>
+		  <p>Responsive design with CSS media queries</p>
+		  <img src="static/images/responsive.png" style="display: block; margin-top: 1em; margin-bottom: 2em;">
+		  <code>@media screen and (min-width: 1080px){...}</code>
+		</section>
+		<section data-background-color="white" data-background-size="contain" data-background="static/images/css-proposal.png">
+		</section>
+		<section data-background-color="white" data-background-size="contain" data-background="static/images/css-proposal.png">
+		  <blockquote>
+			<p>
+              Current browsers consider the computer screen to be the primary
+			  presentation target, but [CSS] has the potential of supporting
+			  many output media, e.g. <strong>paper</strong>, speech and
+			  braille.
+            </p>
+		  </blockquote>
+		</section>
+		<section>
+		  <p>Responsive design = screen + print + …</p>
+		  <img src="static/images/techno-web_multisupport.png">
+		  <code>@media print {…}</code>
+		</section>
+		<section>
+		  <h3>Créer un PDF avec le navigateur</h3>
+		</section>
+		<section data-background-color="black" data-background-size="contain" data-background="static/images/firefox-03-print.png">
+		</section>
+		<section data-background-color="black" data-background-size="contain" data-background="static/images/firefox-04-pdf.png">
+		</section>
+		<section>
+		  <h3>Flux → Pagination</h3>
+		  <img src="static/images/flux-pagination.png" />
+		</section>
+		<section>
+		  <h3>Fonctionnalités manquantes</h3>
+		  <p>
+            Titres courants, numéros de page, double pages, position des éléments en fonction de la page, table
+			des matières, etc.
+          </p>
+		</section>
+		<section>
+		  <img src="static/images/w3c_logo.svg" />
+		  <p>
+            Organisme international de standardisation pour le World Wide Web <br>(Créé
+			par Tim Berners-Lee en 1994)
+          </p>
+		</section>
+		<section data-background-color="white" data-background-size="contain" data-background="static/images/W3C-specification_meme.png">
+		</section>
+		<section data-background-color="white" data-background-size="contain" data-background="static/images/css3-modules.png">
+		</section>
+		<section data-background-color="white" data-background-size="contain" data-background="static/images/css3-modules_pagedmedia.png">
+		</section>
+		<section>
+          <pre style="font-size: 0.6em; max-width: 60%; margin: auto"><code>
+@page {
+  size: 148mm 210mm;
+  margin-top: 20mm;
+  margin-bottom: 60mm;
+}
+
+@page:left {
+  margin-left: 36mm;
+  margin-right: 12mm;
+
+  @bottom-left {
+    content: counter(page);
+    vertical-align: center;
+  }
+
+  @bottom-center {
+    content: string(title);
+    vertical-align: center;
+  }
+}
+
+h1#title {
+  string-set: title content(text);
+}
+          </code></pre>
+		</section>
+
+        <section>
+          <h2>Prendre des chemins différents</h2>
+        </section>
+        <section>
+          <h3>Le besoin et l’idée</h3>
+        </section>
+        <section>
+          <h3>Un peu d’histoire</h3>
+        </section>
+        <section>
+          <h3>L’histoire de WeasyPrint</h3>
+        </section>
+        <section>
+          <ul>
+            <li>Il faut générer des rapports et des factures en PDF</li>
+            <li>On essaie de faire du PDF à la main, LaTeX, OpenOffice</li>
+            <li>On essaie d’utiliser Firefox et Chrome, mais…</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Et si on écrivait notre propre navigateur ?</h4>
+          <p>C’est une <strong>super</strong> idée !</p>
+          <p>
+            <small>
+              Tiens, j’ai fait une preuve de concept qui lit vaguement du HTML
+              et du CSS, qui dessine des lettres et des bordures autour, ça
+              coupe même les pages ! C’est <em>quasi</em> fini, j’en suis sûr.
+            </small>
+          </p>
+          <p>
+            <small>
+              <small>
+                Faudrait quand même que je lise les spécifications un de ces
+                jours… Ça marche comment les tableaux ? Les flottants ? Les
+                couleurs ? La cascade ? Le DOM ? Le HTML ? Les URL ? HTTP ? Les
+                encodages ? Les fontes ? La transparence ? Les gradients ? Le SVG ?
+              </small>
+            </small>
+          </p>
+        </section>
+        <section>
+          <figure>
+            <blockquote style="font-size: 0.8em">
+              <p>
+                <strong>Are we crazy? Yes. But not that much.</strong> Each
+                modern web browser did take many developers’ many years of work
+                to get where they are now, but WeasyPrint’s scope is much
+                smaller: there is no user-interaction, no JavaScript, no live
+                rendering (the document doesn’t changed after it was first
+                parsed) and no quirks mode (we don’t need to support every broken
+                page of the web.)
+              </p>
+              <p>
+                <strong>We still need however to implement the whole CSS box model and visual rendering.</strong>
+                This is a lot of work, but we feel we can get something useful
+                much quicker than “Let’s build a rendering engine!” may seem.
+              </p>
+            </blockquote>
+		    <figcaption>Simon Sapin</figcaption>
+          </figure>
+        </section>
+        <section>
+          <h4>Les avantages</h4>
+          <ul>
+            <li>On crée un moteur de rendu réellement fait pour la pagination</li>
+            <li>On est (plutôt) indépendants vis-à-vis des autres moteurs de rendu</li>
+            <li>On apporte un peu de diversité dans le monde du web</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Les inconvénients</h4>
+          <ul>
+            <li>On doit faire tout le moteur de rendu</li>
+            <li>On bénéficie peu des avancées des autres moteurs</li>
+            <li>On court sans cesse après les nouvelles fonctionnalités CSS</li>
+          </ul>
+        </section>
+        <section>
+          <h3>L’histoire de Paged.js</h3>
+        </section>
+        <section>
+          <p>L’histoire de Paged.js (à détailler)</p>
+        </section>
+        <section>
+          <h4>Les avantages</h4>
+        </section>
+        <section>
+          <h4>Les inconvénients</h4>
+        </section>
+
+        <section>
+          <h2>Construire ensemble</h2>
+        </section>
+        <section>
+          <h3>Est-ce une compétition ?</h3>
+        </section>
+        <section>
+          <h3>Nous interprétons les spécifications</h3>
+        </section>
+        <section>
+          <h3>Quels outils, quels espaces ?</h3>
+        </section>
+        <section>
+          <h3>Quel avenir ?</h3>
+        </section>
+
+        <section>
+          <h2>À tout à l’heure !</h3>
+        </section>
+      </div>
+    </div>
+
+    <script type="application/javascript" src="static/reveal.js/dist/reveal.js"></script>
+    <script type="application/javascript" src="static/reveal.js/plugin/highlight/highlight.js"></script>
+    <script type="application/javascript" src="static/reveal.js/plugin/notes/notes.js"></script>
+    <script type="application/javascript" src="static/slideshow.js"></script>
+  </body>
+</html>
