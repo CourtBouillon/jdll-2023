@@ -1,25 +1,28 @@
 @font-face {
   font-family: ClarityCity;
   font-weight: 400;
-  src: local("ClarityCity Regular"), local("ClarityCity-Regular"), url(fonts/ClarityCity-Regular.woff2);
+  src: local('ClarityCity Regular'), local('ClarityCity-Regular'),
+    url(fonts/ClarityCity-Regular.woff2);
 }
 
 @font-face {
   font-family: ClarityCity;
   font-weight: 700;
-  src: local("ClarityCity Bold"), local("ClarityCity-Bold"), url(fonts/ClarityCity-Bold.woff2);
+  src: local('ClarityCity Bold'), local('ClarityCity-Bold'),
+    url(fonts/ClarityCity-Bold.woff2);
 }
 
 @font-face {
   font-family: ClarityCity;
   font-style: italic;
   font-weight: 400;
-  src: local("ClarityCity RegularItalic"), local("ClarityCity-RegularItalic"), url(fonts/ClarityCity-RegularItalic.woff2);
+  src: local('ClarityCity RegularItalic'), local('ClarityCity-RegularItalic'),
+    url(fonts/ClarityCity-RegularItalic.woff2);
 }
 
 @font-face {
   font-family: Inconsolata;
-  src: local("Inconsolata"), url(fonts/Inconsolata-Regular.woff2);
+  src: local('Inconsolata'), url(fonts/Inconsolata-Regular.woff2);
 }
 
 html {
@@ -151,8 +154,12 @@ iframe {
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1;
-  margin: 0 0 1em 0;
+  margin: 1em 0 0.5em 0;
   text-shadow: 0.04em 0.04em 0.05em #2002;
+}
+
+.reveal .slides p + h3 {
+  margin-top: 2em;
 }
 
 .reveal .slides h4 {
@@ -216,7 +223,7 @@ reveal .slides ol + ol {
 }
 
 .reveal .controls {
-  border-color: #1A2531 !important;
+  border-color: #1a2531 !important;
   opacity: 0.1;
   transition: 1s;
 }
@@ -259,7 +266,7 @@ reveal .slides ol + ol {
   opacity: 0.5;
 }
 
-.reveal section[contenteditable=true] {
+.reveal section[contenteditable='true'] {
   outline: 3px dashed #0003;
 }
 
@@ -297,4 +304,35 @@ reveal .slides ol + ol {
   .reveal .slide-number {
     display: none;
   }
+}
+
+.magic {
+  color: orange;
+}
+
+small {
+  font-size: 0.8em;
+  max-width: 80ch;
+  font-family: monospace;
+  font-style: italic;
+}
+
+p {
+  max-width: 40ch;
+  margin: auto;
+}
+
+.grid {
+  display: flex;
+  /* width:100%; */
+  flex-wrap: wrap;
+  gap: 2ch;
+  align-items: center;
+  justify-content: space-around;
+}
+.reveal .slides .grid img {
+  display: block;
+  height: 10vh;
+  width: auto;
+
 }
