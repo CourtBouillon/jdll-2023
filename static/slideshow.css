@@ -39,9 +39,13 @@ iframe {
   display: block;
   border: 1px solid;
   box-shadow: 0 0 1em #0004;
-  height: 50%;
+  height: 50vh;
   margin: auto;
   width: 80%;
+}
+
+section {
+  /* height: 100%; */
 }
 
 .reveal-viewport {

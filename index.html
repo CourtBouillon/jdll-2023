@@ -36,9 +36,30 @@
           <h2>Poser les termes</h2>
         </section>
         <section>
-          <h3>Qui êtes-vous ?</h3>
+          <h3>Cher public, qui es-tu ?</h3>
         </section>
 
+        <section>
+          <h3>Cher public, qui sommes-nous ?</h3>
+        </section>
+        <section>
+          <h3>De quoi qu’on parle ?</h3>
+        </section>
+
+        <section>
+          <img alt="w3c logo" src="static/images/WWW-LetShare.svg" />
+          <p>1991 <br />(Tim Berners-Lee)</p>
+        </section>
+        <section>
+          <figure>
+            <blockquote>
+              The WorldWideWeb (W3) is a wide-area hypermedia information
+              retrieval initiative aiming to give universal access to a large
+              universe of documents
+            </blockquote>
+            <figcaption>Tim Berners-Lee</figcaption>
+          </figure>
+        </section>
         <section>
           <h3>HTML</h3>
           <p><em>circa</em> 1991</p>
@@ -82,6 +103,17 @@
           <p><em>circa</em> 1996</p>
         </section>
         <section>
+          <p>HTML / CSS</p>
+          <h3>Séparation du contenu et de la présentation</h3>
+          <aside class="notes">
+            So, the main characteristic of the web is the separation of content,
+            the semantic structure of a document and the presentation, the
+            visual rendering. <br />
+            This is really a revolution for graphic designers, who have been
+            used to designing layouts for print media for debate.
+          </aside>
+        </section>
+        <section>
           <h3>Exemple de CSS</h3>
           <pre style="font-size: 0.6em"><code>
 h1 {
@@ -107,6 +139,22 @@ p {
           <h3>Résultat de CSS</h3>
           <iframe src="static/html-css.html"></iframe>
         </section>
+
+        <section>
+          <h3>Responsive</h3>
+          <p><em>circa</em> 2010</p>
+        </section>
+
+        <section>
+          <p>Responsive design with CSS media queries</p>
+          <img
+            alt="a image showing the same content on different screens"
+            src="static/images/responsive.png"
+            style="display: block; margin-top: 1em; margin-bottom: 2em"
+          />
+          <code>@media screen and (min-width: 1080px){...}</code>
+        </section>
+
         <section>
           <h3>JavaScript</h3>
           <p><em>circa 1996</em></p>
@@ -137,46 +185,7 @@ for(var i = 0; i &lt; 4; i++) {
         <section>
           <h2>Bâtir les spécifications</h2>
         </section>
-        <section>
-          <img alt="w3c logo" src="static/images/WWW-LetShare.svg" />
-          <p>1991 <br />(Tim Berners-Lee)</p>
-        </section>
-        <section>
-          <figure>
-            <blockquote>
-              The WorldWideWeb (W3) is a wide-area hypermedia information
-              retrieval initiative aiming to give universal access to a large
-              universe of documents
-            </blockquote>
-            <figcaption>Tim Berners-Lee</figcaption>
-          </figure>
-        </section>
-        <section>
-          <p>HTML / CSS</p>
-          <h3>Séparation du contenu et de la présentation</h3>
-          <aside class="notes">
-            So, the main characteristic of the web is the separation of content,
-            the semantic structure of a document and the presentation, the
-            visual rendering. <br />
-            This is really a revolution for graphic designers, who have been
-            used to designing layouts for print media for debate.
-          </aside>
-        </section>
 
-        <section>
-          <h3>Responsive</h3>
-          <p><em>circa</em> 2010</p>
-        </section>
-
-        <section>
-          <p>Responsive design with CSS media queries</p>
-          <img
-            alt="a image showing the same content on different screens"
-            src="static/images/responsive.png"
-            style="display: block; margin-top: 1em; margin-bottom: 2em"
-          />
-          <code>@media screen and (min-width: 1080px){...}</code>
-        </section>
         <section
           data-background-color="white"
           data-background-size="contain"
@@ -195,11 +204,6 @@ for(var i = 0; i &lt; 4; i++) {
               braille.
             </p>
           </blockquote>
-        </section>
-        <section>
-          <p>Responsive design = screen + print + …</p>
-          <img src="static/images/techno-web_multisupport.png" />
-          <code>@media print {…}</code>
         </section>
         <section>
           <h3>Créer un PDF avec le navigateur</h3>
@@ -228,8 +232,9 @@ for(var i = 0; i &lt; 4; i++) {
         <section>
           <img src="static/images/w3c_logo.svg" />
           <p>
-            Organisme international de standardisation pour le World Wide Web
-            <br />(Créé par Tim Berners-Lee en 1994)
+            Organisme international de standardisation <br />pour
+            le&nbsp;World&nbsp;Wide&nbsp;Web <br />(Créé par Tim Berners-Lee en
+            1994)
           </p>
         </section>
         <section
@@ -275,23 +280,17 @@ h1#title {
 }
           </code></pre>
         </section>
-
-        <section>
-          <h2>Prendre des chemins différents</h2>
-        </section>
-        <section>
-          <h3>Le besoin et l’idée</h3>
-        </section>
-        <section>
-          <h3>Un peu d’histoire</h3>
-        </section>
-
         <section>
           <h3>Printed book</h3>
           <p><em>circa</em> 1452</p>
           <h3>Website</h3>
           <p><em>circa</em> 1991</p>
         </section>
+
+        <section>
+          <h2>Prendre des chemins différents</h2>
+        </section>
+
         <section>
           <h3>L’histoire de WeasyPrint</h3>
         </section>
@@ -352,7 +351,7 @@ h1#title {
           <h4>Les avantages</h4>
           <ul>
             <li>
-              On crée un moteur de rendu réellement fait pour la pagination
+              On crée un moteur de rendu réellement fait pour&nbsp;la&nbsp;pagination
             </li>
             <li>
               On est (plutôt) indépendants vis-à-vis des autres moteurs de rendu
@@ -365,7 +364,7 @@ h1#title {
           <ul>
             <li>On doit faire tout le moteur de rendu</li>
             <li>On bénéficie peu des avancées des autres moteurs</li>
-            <li>On court sans cesse après les nouvelles fonctionnalités CSS</li>
+            <li>On court sans cesse après les nouvelles fonctionnalités&nbsp;CSS</li>
           </ul>
         </section>
         <section>
@@ -376,7 +375,7 @@ h1#title {
             Booksprints, des livres en cinq jours, de l’écriture à la
             publication
           </h3>
-          <p>L’urgence de publier face aux outils classiques de mise en page</p>
+          <p>L’urgence de publier face aux outils classiques <br/>de mise en page</p>
           <p>Web2print, HTML2Print, CSSPrint, whatever2Print</p>
         </section>
         <section>
@@ -389,6 +388,7 @@ h1#title {
           <p>
             <small
               >je rentre pas dans le détail mais c’était top, ça marchait bien,
+              <br/>
               et on pouvait faire plein de trucs.</small
             >
           </p>
@@ -420,7 +420,7 @@ h1#title {
           <ul>
             <li>Le navigateur fait (presque) tout le boulot</li>
             <li>La prévisualisation et les outils d’inspection</li>
-            <li>Javascript pour manipuler les contenus et leur mise en page</li>
+            <li>Javascript pour manipuler les contenus <br/>et leur mise en page</li>
           </ul>
         </section>
         <section>
@@ -428,8 +428,7 @@ h1#title {
           <ul>
             <li>Les navigateurs font (pas suffisament) tout le boulot</li>
             <li>
-              Les limitations du web et les avancées assez lentes des
-              navigateurs
+              Les limitations du web et les avancées assez lentes des&nbsp;navigateurs
             </li>
             <li>@media print, sur un écran (pt, px, CMJN, RVB)</li>
           </ul>
@@ -456,12 +455,16 @@ h1#title {
         </section>
         <section>
           <h3>Est-ce une compétition ?</h3>
-          <img  style="filter: grayscale(.9)" src="./static/images/cssprintshouldrocks.jpg" alt="" />
+          <img
+            style="filter: grayscale(0.9)"
+            src="./static/images/cssprintshouldrocks.jpg"
+            alt=""
+          />
         </section>
         <section>
-          <p>Les outils et la mise en concurrence</p>
-          <p>Les outils et leurs communautés</p>
           <p>Open source vs propriétaire</p>
+          <p>Les outils et la&nbsp;mise en concurrence</p>
+          <p>Les outils et leurs communautés</p>
         </section>
         <section>
           <h3>Nous interprétons les spécifications</h3>
@@ -473,7 +476,7 @@ h1#title {
           <h3>Quels outils, quels espaces pour communiquer ?</h3>
         </section>
         <section>
-          <h3>Quel avenir pour nos projets ? <br/>Et pour le cssPrint? </h3>
+          <h3>Quel avenir pour nos projets ? <br />Et pour le cssPrint?</h3>
         </section>
 
         <section>
